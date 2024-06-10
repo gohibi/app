@@ -1,0 +1,97 @@
+{% include 'main/header.html' %}
+{% include 'main/nav.html' %}
+{% load static %}
+<section>
+    <div class="container">
+        <div class="row position-fixed mt-4 z-3">
+            <div class="dropdown mb-4">
+                    <button type="button" data-bs-toggle="dropdown" aria-expanded="false" class="btn btn-secondary dropdown-toggle bg-dark" > 
+                        Catalogue
+                        <img src="{% static 'assets/icons/grid-fill.svg' %}" alt="Icon filter" height="16" width="16" class="mx-1">
+                    </button>
+
+                    <ul class="dropdown-menu bg-dark">
+                        <li class="dropdown-item"><a href="" class="text-decoration-none text-white">Tous les produits</a></li>
+                        <li class="dropdown-item"><a href="" class="text-decoration-none text-white">Cuisines</a></li>
+                        <li class="dropdown-item"><a href="" class="text-decoration-none text-white">Chambres à coucher</a></li>
+                        <li class="dropdown-item"><a href="" class="text-decoration-none text-white">Salons</a></li>
+                        <li class="dropdown-item"><a href="" class="text-decoration-none text-white">Bureaux</a></li>
+                        <li class="dropdown-item"><a href="" class="text-decoration-none text-white">Accessoires</a></li>
+                        <li class="dropdown-item"><a href="" class="text-decoration-none text-white">Décors</a></li>
+    
+                    </ul>
+            </div>
+            <div>
+                <button type="button" class="btn btn-secondary d-flex" id="modalButton" aria-expanded="false">
+                    <img class="mx-1" src="{% static 'assets/icons/basket2-fill.svg' %}" alt="Catalog Icon" width="26" height="26">
+                    <span id="goods-in-cart">(0)</span>
+                </button>
+            </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" araia-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modla-dialog-scrollable" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <h3 class="text-center mb-4">Panier</h3>
+                        <div class="container" id="cart-items-container">
+                            <div class="card mb-3 text-bg-light shadow-lg">
+                                <div class="header">
+                                    <h5 class="card-title mx-2">Produit</h5>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="row text-center">
+                                            <div class="col p-0">
+                                                <div class="input-group">
+                                                    <span class="input-group-btn">
+                                                        <button type="button" class="btn btn-dark btn-sm decrement"
+                                                            data-cart-id="" data-cart-change-url="">-</button>
+                                                    </span>
+                                                    <input type="text" class="form-control number" value="1"
+                                                        readonly>
+                                                    <span class="input-group-btn">
+                                                        <button type="button" class="btn btn-dark btn-sm increment"
+                                                            data-cart-id="" data-cart-change-url="">+</button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col p-0">
+                                                <p>x 100.00 = </p>
+                                            </div>
+                                            <div class="col p-0"><strong>100.00 $</strong></div>
+                                            <div class="col p-0">
+                                                <a href="#" class="remove-from-cart" data-cart-id="">
+                                                    <img class="mx-1" src="{% static 'assets/icons/trash3-fill.svg' %}"
+                                                        alt="Catalog Icon" width="16" height="16">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card mb-3 shadow-lg">
+                                <div class="card-footer">
+                                    <p class="float-left">Итого <strong>1</strong> товар(а) на сумму</p>
+                                    <h4 class="float-left"><strong>100.00 $</strong></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="btn btn-dark" href="">
+                            Effectuer votre commande
+                        </a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+    {% block content %}
+ 
+    {% endblock %}
+</section>
+{% include 'main/footer.html' %}
