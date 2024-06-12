@@ -1,0 +1,182 @@
+[
+  {
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+      "pid": "PROD3018286962",
+      "name": "Table a thÚ et trois chaises",
+      "slug": "table-a-thÚ-et-trois-chaises",
+      "description": "Ensemble de trois chaises et une table design pour le salon",
+      "image": "img/set_of_tea_table_and_three_chairs_h386Syc.jpg",
+      "price": "150900",
+      "old_price": "169000",
+      "quantity": 4,
+      "category": 1
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+      "pid": "PROD2405315272",
+      "name": "Table a the et deux chaises",
+      "slug": "table-a-the-et-deux-chaises",
+      "description": "Ensemble composÚ d'une table et de deux chaises de style minimaliste",
+      "image": "img/set_of_tea_table_and_two_chairs_u07S9rz.jpg",
+      "price": "93850",
+      "old_price": "96750",
+      "quantity": 4,
+      "category": 1
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+      "pid": "PROD2147931645",
+      "name": "Lit double",
+      "slug": "lit-double",
+      "description": "'Le lit est double avec un appui-tÛte et gÚnÚralement trÞs orthopÚdique",
+      "image": "img/double_bed_DJsKV4Z.jpg",
+      "price": "90500",
+      "old_price": "105500",
+      "quantity": 4,
+      "category": 2
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+      "pid": "PROD9741711701",
+      "name": "Table de cuisine avec evier",
+      "slug": "table-de-cuisine-avec-evier",
+      "description": "Table Ó manger de cuisine avec Úvier et chaises intÚgrÚs",
+      "image": "img/kitchen_table_lp0iFG5.jpg",
+      "price": "365000",
+      "old_price": "412000",
+      "quantity": 4,
+      "category": 1
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+      "pid": "PROD0034867792",
+      "name": "Table de cuisine avec encastre",
+      "slug": "table-de-cuisine-avec-encastre",
+      "description": "Table de cuisine avec cuisiniÞre et Úvier intÚgrÚs. Beaucoup d'ÚtagÞres et gÚnÚralement belles",
+      "image": "img/kitchen_table_2_r1YtUvL.jpg",
+      "price": "430000",
+      "old_price": "490500",
+      "quantity": 2,
+      "category": 1
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 6,
+    "fields": {
+      "pid": "PROD6489706246",
+      "name": "Canape d'angle pour le salon",
+      "slug": "canape-dangle-pour-le-salon",
+      "description": "CanapÚ d'angle, transformable en lit double, parfait pour un salon et recevoir des invitÚs",
+      "image": "img/corner_sofa_OGEaEGS.jpg",
+      "price": "61000",
+      "old_price": "65000",
+      "quantity": 10,
+      "category": 3
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 7,
+    "fields": {
+      "pid": "PROD2362559171",
+      "name": "Table de chevet",
+      "slug": "table-de-chevet",
+      "description": "Table de chevet avec deux tiroirs (fleur non incluse).",
+      "image": "img/bedside_table_fffjiDD.jpg",
+      "price": "55000",
+      "old_price": "56900",
+      "quantity": 5,
+      "category": 2
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 8,
+    "fields": {
+      "pid": "PROD6544134145",
+      "name": "CanapÚ ordinaire",
+      "slug": "canapÚ-ordinaire",
+      "description": "Le canapÚ est aussi un canapÚ ordinaire, rien de remarquable Ó dÚcrire.",
+      "image": "img/sofa_ctLLWcK.jpg",
+      "price": "190000",
+      "old_price": "201000",
+      "quantity": 3,
+      "category": 3
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 9,
+    "fields": {
+      "pid": "PROD8006481221",
+      "name": "Chaise de bureau",
+      "slug": "chaise-de-bureau",
+      "description": "Description du produit, Ó quel point il est cool, mais c'est une chaise, que puis-je dire",
+      "image": "img/office_chair_gKMBESm.jpg",
+      "price": "35000",
+      "old_price": "42000",
+      "quantity": 12,
+      "category": 4
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 10,
+    "fields": {
+      "pid": "PROD6071325881",
+      "name": "Plante",
+      "slug": "plante",
+      "description": "Une plante pour dÚcorer votre intÚrieur donnera fra¯cheur et sÚrÚnitÚ Ó l'environnement",
+      "image": "img/plants_whED1uF.jpg",
+      "price": "12500",
+      "old_price": "15000",
+      "quantity": 5,
+      "category": 6
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 11,
+    "fields": {
+      "pid": "PROD5821893152",
+      "name": "Fleur stylisee",
+      "slug": "fleur-stylisee",
+      "description": "Fleur de crÚateur (Úventuellement artificielle) pour la dÚcoration intÚrieure",
+      "image": "img/flower_OeKhgGM.jpg",
+      "price": "13000",
+      "old_price": "14500",
+      "quantity": 4,
+      "category": 5
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 12,
+    "fields": {
+      "pid": "PROD2433329848",
+      "name": "Table de chevet style",
+      "slug": "table-de-chevet-style",
+      "description": "Une petite table, d'apparence plut¶t Útrange, mais pouvant Ûtre placÚe Ó c¶tÚ du lit",
+      "image": "img/strange_table_nbWrTjK.jpg",
+      "price": "25000",
+      "old_price": "27800",
+      "quantity": 5,
+      "category": 3
+    }
+  }
+]

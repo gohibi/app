@@ -1,0 +1,109 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-lg-2">
+            <!-- Пустой блок на усмотрение -->
+        </div>
+        <div class="col-lg-10">
+            <!-- Контент на странице -->
+            <div class="row">
+                <!-- Форма фильтров -->
+                <div class="dropdown mb-2">
+                    <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Filtres
+                    </button>
+            
+                    <form action="" method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
+                        <div class="form-check text-white mx-3">
+                            <input class="form-check-input" type="checkbox" name="on_sale" id="flexCheckDefault" value="on">
+                            <input type="hidden" name="q" value="request.GET.q">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Produits en vente
+                            </label>
+                        </div>
+                        <p class="text-white mx-3 mt-3">Trier:</p>
+                        <div class="form-check text-white mx-3">
+                            <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault1" value="default" checked>
+                            <label class="form-check-label" for="flexRadioDefault1">
+                               Par default
+                            </label>
+                        </div>
+                        <div class="form-check text-white mx-3">
+                            <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault2" value="price">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Du moins cher au plus cher
+                            </label>
+                        </div>
+                        <div class="form-check text-white mx-3">
+                            <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault3" value="-price">
+                            <label class="form-check-label" for="flexRadioDefault3">
+                                Du plus cher au moins cher
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary mx-3 mt-3">Appliquer</button>
+                    </form>
+                </div>
+                <!-- Карта товара -->
+               <p><h3>{{categorie.name}}</h3></p>
+               <div>
+                <p>Nous avons trouvé <strong>{{products.count}}</strong> produit{{products.count|pluralize}}</p>
+               </div>
+               {% for p in products %}
+                <div class="col-lg-4 col-md-6 p-4">
+                    <div class="card border-primary rounded custom-shadow">
+                        <img src="{{p.image.url}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a href="">
+                                <p class="card-title">{{p.name}}</p>
+                            </a>
+                            <p class="card-text text-truncate">{{p.description}}</p>
+                            <p class="product_id">{{p.pid}}</p>
+                            <div class="d-flex justify-content-between">
+                                <!-- <p><s>100</s> $</p>
+                                <p><strong>90.00 $</strong></p> -->
+                                {% if product.old_price %}
+                                <span class="badge bg-warning text-dark text-white">
+                                   
+                                        - {{product.get_discount|floatformat:0}} %
+
+                                </span> 
+                                {% endif %}
+                                <p><strong>{{p.price}}Fcfa</strong></p>
+                                <a href="#" class="btn add-to-cart">
+                                    <img class="mx-1" src="{% static 'assets/icons/cart-plus.svg' %}" alt="Catalog Icon"
+                                        width="32" height="32">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+               
+
+
+
+            </div>
+            <!-- Пагинация -->
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center my-4">
+                    <div class="custom-shadow d-flex">
+                        <li class="page-item">
+                          <a class="page-link">Previous</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                          <a class="page-link" href="#">Next</a>
+                        </li>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
