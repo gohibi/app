@@ -16,10 +16,10 @@
                     </button>
                     <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
                         {% for categorie in categories %}
-                        <li class="dropdown-item"><a href="{% url 'products:product-category' categorie.slug %}" class="text-decoration-none text-white">{{categorie.name}}</a></li>
+                        <li class="dropdown-item"><a href="{% url 'products:catalog' categorie.slug %}" class="text-decoration-none text-white">{{categorie.name}}</a></li>
                         {% endfor %}
                         <hr class="dropdown-divider">
-                        <li class="dropdown-item"><a href="{% url 'products:catalog' %}" class="text-decoration-none text-white">Tous les produits</a></li>
+                       
                     </ul>
                 </div>
                 <!-- Значек корзины, вызывает модальное окно -->

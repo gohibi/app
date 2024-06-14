@@ -29,7 +29,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10,decimal_places=0,verbose_name="Prix")
     old_price = models.DecimalField(max_digits=10,decimal_places=0 ,verbose_name="Ancien prix",blank=True,null=True)
     quantity = models.PositiveIntegerField(default="0",verbose_name="Quantité")
-    category = models.ForeignKey(on_delete=models.CASCADE, to=Category)
+    category = models.ForeignKey(on_delete=models.CASCADE, to=Category, related_name="category")
     
     class Meta:
         verbose_name_plural = "Products"
