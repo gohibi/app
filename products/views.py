@@ -26,8 +26,14 @@ from products.models import Product, Category
 #     context['products'] = products
     
 #     return render(request,'products/catalog.html' , context)
-def catalog(request,category_slug , page=1):
+def catalog(request,category_slug):
     context={}
+    
+    on_sale = request.GET.get('on_sale',None)
+    order_by = request.GET.get('order_by',None)    
+    page =request.GET.get('page',1)
+    
+    
     if category_slug == "all":
         products = Product.objects.all()
         catname = "Tous les produits"
@@ -35,6 +41,11 @@ def catalog(request,category_slug , page=1):
         category =get_object_or_404(Category,slug=category_slug)
         products = get_list_or_404(Product.objects.filter(category = category))
         catname = category.name
+        
+    if on_sale:
+        products = products.filter(old_price__isnull=True)
+    if order_by and order_by !="default":
+        products = products.order_by(order_by)
         
     nbr_items = 3
     paginator =Paginator(products,nbr_items)

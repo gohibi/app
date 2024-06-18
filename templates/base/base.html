@@ -1,6 +1,7 @@
 {% include 'base/header.html' %}
 {% include 'base/navbar.html' %}
 {% load static %}
+{% load products_tags %}
 <body>
     <section>
         <div class="container">
@@ -15,6 +16,7 @@
                             height="16">
                     </button>
                     <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
+                        {% category_tags as categories %}
                         {% for categorie in categories %}
                         <li class="dropdown-item"><a href="{% url 'products:catalog' categorie.slug %}" class="text-decoration-none text-white">{{categorie.name}}</a></li>
                         {% endfor %}
