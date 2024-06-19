@@ -18,13 +18,14 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
-from app.settings import DEBUG
+# from app.settings import DEBUG
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('main.urls')),
     path('catalogue/', include('products.urls')),
+    path('utilisateurs/',include('users.urls')),
 ]
 
 if settings.DEBUG:
