@@ -43,8 +43,8 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
+                <form class="d-flex" role="search" action="{% url 'products:search' %}" method="get">
+                    <input class="form-control me-2" name="qsearch" type="search" placeholder="Recherche" aria-label="Search">
                     <button class="btn btn-outline-success text-white" type="submit">Recherche</button>
                 </form>
             </div>

@@ -2,12 +2,11 @@ from django.shortcuts import render,get_object_or_404,get_list_or_404
 from django.views.generic import TemplateView
 from django.core.paginator import Paginator
 from products.models import Product, Category
+from products.utils import q_search
 
 
 # def catalog(request):
 #     context={}
-    
-
 #     on_sale = request.GET.get('on_sale',None)
 #     order_by = request.GET.get('order_by',None)
     
@@ -26,16 +25,20 @@ from products.models import Product, Category
 #     context['products'] = products
     
 #     return render(request,'products/catalog.html' , context)
-def catalog(request,category_slug):
+def catalog(request,category_slug=None):
     context={}
     
     on_sale = request.GET.get('on_sale',None)
     order_by = request.GET.get('order_by',None)    
     page =request.GET.get('page',1)
+    qsearch = request.GET.get('qsearch',None)
     
     
     if category_slug == "all":
         products = Product.objects.all()
+        catname = "Tous les produits"
+    elif qsearch:
+        products = q_search(qsearch)
         catname = "Tous les produits"
     else:
         category =get_object_or_404(Category,slug=category_slug)
@@ -57,16 +60,6 @@ def catalog(request,category_slug):
     
     return render(request,'products/catalog.html' , context)
 
-
-
-
-# def product_category(request,slug):
-#     context={}
-#     categorie = Category.objects.get(slug=slug)
-#     products = Product.objects.filter(category=categorie)
-#     context['categorie'] = categorie
-#     context['products'] = products
-#     return render(request,'products/product-category.html',context)
 
 def product_detail(request,slug,pid):
     product = get_object_or_404(Product,slug=slug,pid=pid)
