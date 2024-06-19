@@ -19,7 +19,9 @@
                         </div>
                         <div class="col-md-4 ">
                             <p class="product_id mt-3">{{prod.pid}}</p>
-                        </div>
+                        </div><br>
+                        
+
                         <!-- Увеличить изображение в модальном окне -->
                         <div class="modal fade" id="imageModal1" tabindex="-1"
                             aria-labelledby="imageModal1Label" aria-hidden="true">
@@ -40,8 +42,17 @@
                     </div>
                     <!-- Описание товара -->
                     <div class="card-body">
-                        <p class="card-text">Prix: <strong>{{prod.price}} Fcfa</strong></p>
                         <h5 class="card-title">{{prod.name}}</h5>
+                        <p class="card-text">Categorie: 
+                        {% autoescape off%}
+                        {% if prod.footerline %}
+                            {{ prod.footerline}}
+                        {% else %}
+                            <strong>{{prod.category.name}}</strong>
+                        {% endif %}
+                        {% endautoescape %}
+                        </p>
+                        <p class="card-text">Prix: <strong>{{prod.price}} Fcfa</strong></p>
                         <p class="card-text">{{prod.description}}</p>
                         <a href="#" class="btn btn-dark add-to-cart">Ajputer au panier</a>
                     </div>
