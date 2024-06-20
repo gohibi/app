@@ -7,12 +7,28 @@
         <div class="row justify-content-center">
             <div class="col-md-9 bg-white p-4 mb-5 mx-2 rounded custom-shadow">
                 <h2 class="text-center mb-4">{{title}}</h2>
-                <form>
+                <form action="{% url 'users:register' %}" method="post">
                     <div class="row">
+                        {% csrf_token %}
+                        {% for item in form %}
                         <div class="col-md-6 mb-3">
-                            <label for="firstName" class="form-label">Nom*</label>
+                            <label for="{{item.id_for_label}}" class="form-label">{{item.label}}</label>
+                            {{item}}
+                            {% if item.errors %}
+                            <div class="alert alert-danger alert-dismissible fade show">
+                                {{ item.errors }}
+                            </div>
+                            {% endif %}
+                            <!-- <input type="text" class="form-control" id="firstName"
+                                placeholder="Entrez votre prenom" required> -->
+                        </div>
+                        {% endfor %}
+
+                        {% comment %}
+                        <!-- <div class="col-md-6 mb-3">
+                            <label for="firstName" class="form-label">Prenoms*</label>
                             <input type="text" class="form-control" id="firstName"
-                                placeholder="Entrez votre nom" required>
+                                placeholder="Entrez votre prenom" required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="lastName" class="form-label">Nom de famille*</label>
@@ -38,7 +54,8 @@
                             <label for="password2" class="form-label">Confirmation mot de passe*</label>
                             <input type="password" class="form-control" id="password2"
                                 placeholder="Confirmez le mot de passe" required>
-                        </div>
+                        </div> -->
+                        {% endcomment %}
                     </div>
                     <button type="submit"
                         class="btn btn-dark btn-block">S'inscrire</button>

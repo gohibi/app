@@ -23,9 +23,12 @@
                     <li class="nav-item">
                         <a class="nav-link  text-white" href="">Panier</a>
                     </li>
+                    {% if not user.is_authenticated  %}
                     <li class="nav-item">
                         <a class="nav-link  text-white" href="{% url 'users:login' %}">Se connecter</a>
                     </li>
+                    
+                    {% else %}
                     <li class="nav-item dropdown ">
                         <a class="nav-link dropdown-toggle text-white" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -35,13 +38,18 @@
                             <li><a class="dropdown-item  text-white" href="">Panier</a></li>
                             <li><a class="dropdown-item  text-white" href="{% url 'users:profile' %}">Informations personelles</a>
                             </li>
-                            <li><a class="dropdown-item  text-white" href="#">Tableau de bord</a></li>
+                            {% if user.is_admin or user.is_staff %}
+                            <li><a class="dropdown-item  text-white" href="{% url 'admin:index' %}">Tableau admin</a></li>
+                            {% endif %}
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li><a class="dropdown-item  text-white" href="{% url 'users:logout' %}">Deconnexion</a></li>
                         </ul>
                     </li>
+                    {% endif %}
+                   
+                   
                 </ul>
                 <form class="d-flex" role="search" action="{% url 'products:search' %}" method="get">
                     <input class="form-control me-2" name="qsearch" type="search" placeholder="Recherche" aria-label="Search">

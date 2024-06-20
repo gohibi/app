@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from users.forms import Loginform
+from django.shortcuts import render , redirect
+from users.forms import Loginform , RegisterForm
 from django.contrib import auth
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -24,15 +24,32 @@ def login(request):
     context['form'] = form
     return render(request,'users/login.html',context)
 
+
+
 def register(request):
-    context={}
+    context={} 
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user =form.instance
+            auth.login(request,user)
+            return HttpResponseRedirect(reverse("main:index"))
+    else:
+        form = RegisterForm()
+    
     context['title'] ="Inscription"
+    context['form'] = form
     return render(request,'users/register.html',context)
+
+
+
 
 def profile(request):
     context={}
     context['title'] = "Profil de l'utilisateur"
     return render(request,'users/profile.html',context)
 
-def logout():
-    pass
+def logout(request):
+    auth.logout(request)
+    return redirect(reverse('main:index'))
