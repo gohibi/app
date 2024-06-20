@@ -1,5 +1,6 @@
 {% include 'base/header.html' %}
 {% include 'base/navbar.html' %}
+
 {% load static %}
 {% load products_tags %}
 <body>
@@ -107,6 +108,7 @@
                 </div>
                 <div class="col-lg-10">
                     <!-- Контент на странице -->
+                    {% include 'includes/notification.html'%}
                     {% block content %}
 
                     {% endblock %}
