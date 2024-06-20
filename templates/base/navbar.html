@@ -46,11 +46,16 @@
                             </li>
                             <li><a class="dropdown-item  text-white" href="{% url 'users:logout' %}">Deconnexion</a></li>
                         </ul>
+                         <li class="nav-item">
+                        <a class="nav-link text-white"><span class="text-success text-capitalize mx-2"> {{ user.username }}</span>est connecté</a>
+                        </li>
                     </li>
                     {% endif %}
+
                    
                    
                 </ul>
+                
                 <form class="d-flex" role="search" action="{% url 'products:search' %}" method="get">
                     <input class="form-control me-2" name="qsearch" type="search" placeholder="Recherche" aria-label="Search">
                     <button class="btn btn-outline-success text-white" type="submit">Recherche</button>
