@@ -24,5 +24,9 @@ def add_cart(request,pid):
 def change_cart(request,pid):
     pass
 
-def remove_cart(request,pid):
-    pass
+def remove_cart(request,cart_id):
+    cart = Cart.objects.get(id=cart_id)
+    cart.delete()
+    
+    return redirect(request.META['HTTP_REFERER'])
+    

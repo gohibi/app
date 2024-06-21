@@ -95,9 +95,11 @@
                         {% include 'includes/cart.html'%}
                         <!-- Закончилась разметка корзины -->
                     </div>
+                    {% if carts %}
                     <a class="btn btn-dark" href="../orders/create_order.html">
                         commander
                     </a>
+                    {% endif %}
                 </div>
             </div>
             <!-- Оформленные заказы -->
