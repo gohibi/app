@@ -21,7 +21,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link  text-white" href="">Panier</a>
+                        <a class="nav-link  text-white" href="{% url 'users:cart-user' %}">Panier</a>
                     </li>
                     {% if not user.is_authenticated  %}
                     <li class="nav-item">

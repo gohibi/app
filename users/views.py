@@ -18,6 +18,10 @@ def login(request):
             if user:
                 auth.login(request,user)
                 messages.success(request , f"{username} , vous etes connectés")
+                
+                if request.POST.get("next",None):
+                    return HttpResponseRedirect(request.POST.get('next'))
+                
                 return HttpResponseRedirect(reverse("main:index"))
     else:
         form = Loginform()        
@@ -49,7 +53,7 @@ def register(request):
 def profile(request):
     context={}
     if request.method == "POST":
-        form = Profileform(request.POST , instance = request.user , files=request.FILES)
+        form = Profileform(request.POST , instance = request.user , files = request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, "Mis a jour du profil avec succès")
@@ -60,9 +64,12 @@ def profile(request):
     context['title'] = "Profil de l'utilisateur"
     return render(request,'users/profile.html',context)
 
+def cart_user(request):
+    return render(request,'users/cartuser.html')
+
 
 @login_required
 def logout(request):
+    messages.warning(request,f"{request.user.username} , Vous etes deconnectés avec succes!")
     auth.logout(request)
-    messages.warning(request,f"Vous etes deconnectés avec succes!")
     return redirect(reverse('main:index'))
