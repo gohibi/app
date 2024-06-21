@@ -35,7 +35,7 @@
                             Mon profil
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item  text-white" href="">Panier</a></li>
+                            <li><a class="dropdown-item  text-white" href="{% url 'users:cart-user' %}">Panier</a></li>
                             <li><a class="dropdown-item  text-white" href="{% url 'users:profile' %}">Informations personelles</a>
                             </li>
                             {% if user.is_admin or user.is_staff %}
