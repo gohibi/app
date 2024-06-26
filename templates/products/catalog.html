@@ -113,7 +113,8 @@
                                 {% else %}
                                 <p><strong>{{product.price}}</strong></p>
                                 {% endif %} 
-                                <a href="{% url 'carts:add-cart' product.pid %}" class="btn add-to-cart">
+                                <a href="{% url 'carts:add-cart' %}" class="btn add-to-cart" id="" data-product-id="{{ product.id }}">
+                                    {% csrf_token %}
                                     <img class="mx-1" src="{% static 'assets/icons/cart-plus.svg' %}" alt="Catalog Icon"
                                         width="32" height="32">
                                 </a>

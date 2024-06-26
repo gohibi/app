@@ -35,7 +35,7 @@
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="imageModal1Label">{{prod.name}}</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Закрыть"></button>
+                                            aria-label="close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <img src="{{prod.image.url}}"
@@ -55,7 +55,9 @@
                         </p>
                         <p class="card-text">Prix: <strong>{{prod.price}} Fcfa</strong></p>
                         <p class="card-text">{{prod.description}}</p>
-                        <a href="{% url 'carts:add-cart' prod.pid %}" class="btn btn-dark add-to-cart">Ajouter au panier</a>
+                        <a href="{% url 'carts:add-cart' %}" class="btn btn-dark add-to-cart" id=""  data-product-id="{{prod.id}}">
+                            {% csrf_token %}
+                            Ajouter au panier</a>
                     </div>
                 </div>
             </div>
